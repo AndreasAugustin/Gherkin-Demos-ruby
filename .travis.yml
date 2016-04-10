@@ -1,5 +1,7 @@
 language: ruby
 rvm:
   - 2.2
-script: cucumber
+script:
+  - cd test
+  - bundle exec cucumber
 
