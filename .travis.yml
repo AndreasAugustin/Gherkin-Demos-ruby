@@ -1,4 +1,5 @@
 language: ruby
-
-scripts: cucumber
+rvm:
+  - 2.2
+script: cucumber
 
