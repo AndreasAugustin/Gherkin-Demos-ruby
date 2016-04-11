@@ -21,7 +21,7 @@ end
 
 Then(/^the encoded length is equal to "([^"]*)"$/) do |arg|
   print 'Then the encoded length is equal to ', arg, "\n"
-  expect(@encoded.length).to eq arg
+  expect(@encoded.length).to eq arg.to_i
 end
 
 When(/^I enter the lower case word "([^"]*)"$/) do |arg|
@@ -31,7 +31,7 @@ end
 
 Then(/^the encoded first letter is equal to "([^"]*)"$/) do |arg|
   print 'Then the encoded first letter is equal to ', arg, "\n"
-  expect(@encoded).to eq arg
+  expect(@encoded[0]).to eq arg
 end
 
 When(/^I enter the character "([^"]*)"$/) do |arg|

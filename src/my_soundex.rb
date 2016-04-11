@@ -16,7 +16,7 @@ class MySoundex
   # @param [String] word
   # @return [String] the encoded word
   def encode(word)
-    zero_pad(upper_front(head(word)) + tail(encoded_digits(word)))
+    zero_pad(remove_not_a_digit(upper_front(head(word)) + tail(encoded_digits(word))))
   end
 
   # @param [Char] character
@@ -40,6 +40,16 @@ class MySoundex
       return @empty_string
     end
     encoded_digit(word[0])
+  end
+
+  def remove_not_a_digit(word)
+    ret = ''
+    word[0..-1].split('').each do |c|
+      if c != @not_a_digit
+        ret += c
+      end
+      end
+      ret
   end
 
   def encode_tail(encoding, word)
@@ -100,7 +110,7 @@ class MySoundex
   def zero_pad(word)
     zeros_needed = @max_code_length - word.length
 
-    [*0..zeros_needed].each do |x|
+    [*1..zeros_needed].each do |x|
       word += '0'
     end
 
